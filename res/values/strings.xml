@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">RockPaperScissorPlus</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!-- Index -->
+    <string name="versus_player">P1 v P2</string>
+    <string name="versus_com">P1 v COM</string>
+    <string name="instruct">INSTRUCTIONS</string>
+    <string name="history">RECORD</string>
+
+    <!-- First Stage -->
+    <string name="pick">PICK</string>
+    <string name="fight">FIGHT</string>
+    <string name="done">DONE</string>
+
+    <string name="pick_p1">PLAYER ONE PICK</string>
+    <string name="pick_p2">PLAYER TWO PICK</string>
+
+    <!-- Result Stage -->
+    <string name="player_win">Player Wins</string>
+    <string name="com_win">Hal 9000 Wins</string>
+    <string name="retry">ANOTHER GO?</string>
+    <string name="menu">MENU</string>
+
+    <!--  -->
+    <string name="same">Same Phone</string>
+    <string name="blue">Blue Tooth</string>
+    <string name="title_activity_pick">pick</string>
+
+    <string-array name="weapons_array">
+        <item>rock</item>
+        <item>paper</item>
+        <item>scissors</item>
+    </string-array>
+</resources>
