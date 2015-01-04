@@ -1,5 +1,6 @@
 package com.example.j.rockpaperscissorsplus;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,7 +9,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import module.GameEngine;
 import module.Weapon;
@@ -25,7 +25,7 @@ public class PickActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick);
 
-        Spinner spinner = (Spinner) findViewById(R.id.weapon_spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.weaponSpinner);
         // Create an ArrayAdapter and populate it with items from weapons_array
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.weapons_array, android.R.layout.simple_spinner_item);
@@ -60,7 +60,7 @@ public class PickActivity extends ActionBarActivity {
     }
 
     public void armPlayer(View view) {
-        Spinner spinner = (Spinner)findViewById(R.id.weapon_spinner);
+        Spinner spinner = (Spinner)findViewById(R.id.weaponSpinner);
         String weapon = spinner.getSelectedItem().toString();
 
 
@@ -69,9 +69,9 @@ public class PickActivity extends ActionBarActivity {
             mode = "player2";
 
             // change text view to indicate player 2's turn
-            TextView t=new TextView(this);
+            TextView t= new TextView(this);
 
-            t=(TextView)findViewById(R.id.pick_title);
+            t = (TextView)findViewById(R.id.pickText);
             t.setText(getString(R.string.pick_p2));
 
             return;
@@ -79,15 +79,14 @@ public class PickActivity extends ActionBarActivity {
 
         if (mode.equals("player2")) {
             playerTwoWeapon = weapon;
+
+            // change mode back to "player" for use in next activity
+            mode = "player";
+
         } else {
             playerOneWeapon = weapon;
             playerTwoWeapon = Weapon.random();
         }
-
-//        String text = "Mode: " + mode + "PlayerOne: " + playerOneWeapon + " Player two: " + playerTwoWeapon;
-//
-//        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
-//        toast.show();
 
         fight(playerOneWeapon, playerTwoWeapon);
     }
@@ -97,20 +96,20 @@ public class PickActivity extends ActionBarActivity {
 
         int winner = engine.fight(playerOne, playerTwo);
 
-        String text = "Player One: " + playerOne + " Player Two: " + playerTwo + " Winner: " + winner;
+//        String text = "Player One: " + playerOne + " Player Two: " + playerTwo + " Winner: " + winner;
 
-        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
-        toast.show();
+//        Toast toast = Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT);
+//        toast.show();
 
-//        goToResult(mode,winner, playerOne, playerTwo );
+        goToResult(mode,winner, playerOne, playerTwo );
     }
 
-//    public void goToResult(String mode, int winner, String playerOne, String playerTwo) {
-//        Intent intent = new Intent(this, PickActivity.class);
-//        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_WINNER", winner);
-//        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_MODE", mode);
-//        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_PLYRONE", playerOne);
-//        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_PLYRTWO", playerTwo);
-//        startActivity(intent);
-//    }
+    public void goToResult(String mode, int winner, String playerOne, String playerTwo) {
+        Intent intent = new Intent(this, ResultsActivity.class);
+        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_WINNER", winner);
+        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_MODE", mode);
+        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_PLYRONE", playerOne);
+        intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_PLYRTWO", playerTwo);
+        startActivity(intent);
+    }
 }

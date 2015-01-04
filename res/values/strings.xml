@@ -14,14 +14,17 @@
     <string name="pick">PICK</string>
     <string name="fight">FIGHT</string>
     <string name="done">DONE</string>
-
     <string name="pick_p1">PLAYER ONE PICK</string>
     <string name="pick_p2">PLAYER TWO PICK</string>
 
     <!-- Result Stage -->
     <string name="player_win">Player Wins</string>
+    <string name="player_one_win">Player One Wins</string>
+    <string name="player_two_win">Player Two Wins</string>
     <string name="com_win">Hal 9000 Wins</string>
-    <string name="retry">ANOTHER GO?</string>
+    <string name="draw">Draw</string>
+
+    <string name="retry">ANOTHER GO</string>
     <string name="menu">MENU</string>
 
     <!--  -->
@@ -34,4 +37,7 @@
         <item>paper</item>
         <item>scissors</item>
     </string-array>
+
+    <string name="title_activity_results">ResultsActivity</string>
+
 </resources>
