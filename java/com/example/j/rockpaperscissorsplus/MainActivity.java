@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-    Button btnPick;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +20,7 @@ public class MainActivity extends ActionBarActivity {
 
         Button btnCom = (Button) findViewById(R.id.btnVerCom);
         Button btnPla = (Button) findViewById(R.id.btnVerPla);
-
+        Button btnRec = (Button) findViewById(R.id.btnRecord);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,12 +32,17 @@ public class MainActivity extends ActionBarActivity {
                     case R.id.btnVerPla:
                         goToPick("player");
                         break;
+
+                    case R.id.btnRecord:
+                        goToRecord();
+                        break;
                 }
             }
         };
 
         btnCom.setOnClickListener(listener);
         btnPla.setOnClickListener(listener);
+        btnRec.setOnClickListener(listener);
     }
 
 
@@ -68,6 +71,11 @@ public class MainActivity extends ActionBarActivity {
     public void goToPick(String mode) {
         Intent intent = new Intent(this, PickActivity.class);
         intent.putExtra("com.example.j.rockpaperscissorsplus.EXTRA_MODE", mode);
+        startActivity(intent);
+    }
+
+    public void goToRecord() {
+        Intent intent = new Intent(this, RecordActivity.class);
         startActivity(intent);
     }
 }

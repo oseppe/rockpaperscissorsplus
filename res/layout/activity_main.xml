@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/history"
-        android:id="@+id/btnRec"
+        android:id="@+id/btnRecord"
         android:layout_below="@+id/btnInstruct"
         android:layout_centerHorizontal="true" />
 
