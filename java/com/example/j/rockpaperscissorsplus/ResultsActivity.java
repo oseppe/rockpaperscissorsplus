@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import module.DatabaseHelper;
+import module.Record;
 
 
 public class ResultsActivity extends ActionBarActivity {
@@ -38,8 +39,9 @@ public class ResultsActivity extends ActionBarActivity {
         f.setText(composeFightText(winner, playerOne, playerTwo));
 
         // save match
-        DatabaseHelper db = new DatabaseHelper(this);
-        db.saveMatch(mode, winner);
+        Record record = new Record(this);
+        record.open();
+        record.saveMatch(mode, winner);
 
         // create buttons
         Button btnMenu = (Button) findViewById(R.id.btnMenu);

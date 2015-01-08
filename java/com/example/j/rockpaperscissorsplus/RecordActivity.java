@@ -13,18 +13,22 @@ import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import module.DatabaseHelper;
+import module.Record;
 
 
 public class RecordActivity extends ActionBarActivity {
+
+    private Record record;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record);
 
-        DatabaseHelper db = new DatabaseHelper(this);
-        Cursor cur = db.getAllRecords();
+        record = new Record(this);
+        record.open();
+
+        Cursor cur = record.getAllRecords();
 
         CursorAdapter adapter = new ResultsCursorAdapter(this, cur);
 
@@ -74,11 +78,11 @@ public class RecordActivity extends ActionBarActivity {
             TextView opponent = (TextView) view.findViewById(R.id.opponent_entry);
             TextView result = (TextView) view.findViewById(R.id.result_entry);
             // Extract properties from cursor
-            String body = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
-            int priority = cursor.getInt(cursor.getColumnIndexOrThrow("Result"));
+            String opponentText = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
+            String resultText = cursor.getString(cursor.getColumnIndexOrThrow("ResultText"));
             // Populate fields with extracted properties
-            opponent.setText(body);
-            result.setText(String.valueOf(priority));
+            opponent.setText(opponentText);
+            result.setText(resultText);
         }
     }
 }
