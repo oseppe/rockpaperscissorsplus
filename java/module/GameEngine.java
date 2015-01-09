@@ -40,23 +40,45 @@ public class GameEngine {
         // rock look up
         HashMap<String, Integer> rock = new HashMap();
         rock.put("scissors", 1);
+        rock.put("lizard", 1);
         rock.put("paper", 2);
+        rock.put("spock", 2);
         rock.put("rock", 0);
 
         HashMap<String, Integer> scissors = new HashMap();
         scissors.put("paper", 1);
+        scissors.put("lizard", 1);
         scissors.put("rock", 2);
+        scissors.put("spock", 2);
         scissors.put("scissors", 0);
 
         HashMap<String, Integer> paper = new HashMap();
         paper.put("rock", 1);
+        paper.put("spock", 1);
         paper.put("scissors", 2);
+        paper.put("lizard", 2);
         paper.put("paper", 0);
+
+        HashMap<String, Integer> lizard = new HashMap();
+        lizard.put("paper", 1);
+        lizard.put("spock", 1);
+        lizard.put("rock", 2);
+        lizard.put("scissors", 2);
+        lizard.put("lizard", 0);
+
+        HashMap<String, Integer> spock = new HashMap();
+        spock.put("rock", 1);
+        spock.put("scissors", 1);
+        spock.put("paper", 2);
+        spock.put("lizard", 2);
+        spock.put("spock", 0);
 
         // Add hash map to map
         map.put("rock", rock);
         map.put("scissors", scissors);
         map.put("paper", paper);
+        map.put("lizard", lizard);
+        map.put("spock", spock);
 
         return map;
     }

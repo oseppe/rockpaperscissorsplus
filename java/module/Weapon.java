@@ -21,19 +21,18 @@ public class Weapon {
 
     // get list of available weapons
     public static String[] getList() {
-        String[] weapons = {"rock", "paper", "scissors"};
+        String[] weapons = {"rock", "paper", "scissors", "lizard", "spock"};
 
         return weapons;
     }
 
     // returns pseudo-random weapon from weapons list
     public static String random() {
-        int chosen = 0;
         Random random = new Random();
         String weapon = "";
         String[] weapons = getList();
 
-        chosen = random.nextInt(weapons.length);
+        int chosen = random.nextInt(weapons.length);
 
         weapon = weapons[chosen];
 

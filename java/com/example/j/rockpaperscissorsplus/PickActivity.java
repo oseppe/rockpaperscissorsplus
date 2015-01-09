@@ -74,6 +74,9 @@ public class PickActivity extends ActionBarActivity {
             t = (TextView)findViewById(R.id.pickText);
             t.setText(getString(R.string.pick_p2));
 
+            // set spinner selection back to default value
+            spinner.setSelection(0);
+
             return;
         }
 

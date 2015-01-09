@@ -2,23 +2,24 @@ package module;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.j.rockpaperscissorsplus.R;
 
 /**
  * Created by j on 1/8/15.
  */
 public class Record {
 
-    private static final String DATABASE_NAME = "rpsplusDb.db";
-    private static final String RECORD_TABLE = "record";
+    private static final String DRAW_TEXT = "Draw with";
+    private static final String WIN_TEXT = "Won against";
+    private static final String LOSE_TEXT = "Destroyed by";
 
-    // rows
-    private static final String COL_ID = "_id";
-    private static final String COL_OPPONENT = "Opponent";
-    private static final String COL_RESULT = "Result";
-    private static final String COL_DATE = "Date";
+    private static final String OPPONENT_COM = "Hal 9000";
+    private static final String OPPONENT_PLAYER = "Player 2";
 
     // Database fields
     private SQLiteDatabase database;
@@ -49,24 +50,24 @@ public class Record {
     }
 
     public void saveMatch(String mode, int result) {
-        String opponent = "HAL 9000";
+        String opponent = OPPONENT_COM;
         String resultText = "";
 
         if (mode.equals("player")) {
-            opponent = "Player";
+            opponent = OPPONENT_PLAYER;
         }
 
         switch(result) {
             case 0:
-                resultText = "Draw";
+                resultText = DRAW_TEXT;
                 break;
 
             case 1:
-                resultText = "Won";
+                resultText = WIN_TEXT;
                 break;
 
             case 2:
-                resultText = "Lost";
+                resultText = LOSE_TEXT;
                 break;
         }
 

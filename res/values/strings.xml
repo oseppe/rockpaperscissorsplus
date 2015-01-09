@@ -30,10 +30,20 @@
     <string name="same">Same Phone</string>
     <string name="blue">Blue Tooth</string>
 
+    <!-- Record -->
+    <string name="draw_record">Draw with</string>
+    <string name="win_record">Won against</string>
+    <string name="lose_record">Destroyed by</string>
+
+    <string name="opponent_com">Hal 9000</string>
+    <string name="opponent_player">Player 2</string>
+
     <string-array name="weapons_array">
         <item>rock</item>
         <item>paper</item>
         <item>scissors</item>
+        <item>lizard</item>
+        <item>spock</item>
     </string-array>
 
     <string name="title_activity_pick">pick</string>

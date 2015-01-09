@@ -75,14 +75,18 @@ public class RecordActivity extends ActionBarActivity {
         @Override
         public void bindView(View view, Context context, Cursor cursor) {
             // Find fields to populate in inflated template
-            TextView opponent = (TextView) view.findViewById(R.id.opponent_entry);
+            TextView date = (TextView) view.findViewById(R.id.date_entry);
             TextView result = (TextView) view.findViewById(R.id.result_entry);
             // Extract properties from cursor
+            String dateText = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
             String opponentText = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
             String resultText = cursor.getString(cursor.getColumnIndexOrThrow("ResultText"));
+
+            String combinedText = resultText + " " + opponentText;
+
             // Populate fields with extracted properties
-            opponent.setText(opponentText);
-            result.setText(resultText);
+            date.setText(dateText);
+            result.setText(combinedText);
         }
     }
 }
