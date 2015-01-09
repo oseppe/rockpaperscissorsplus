@@ -34,7 +34,6 @@
     <string name="draw_record">Draw with</string>
     <string name="win_record">Won against</string>
     <string name="lose_record">Destroyed by</string>
-
     <string name="opponent_com">Hal 9000</string>
     <string name="opponent_player">Player 2</string>
 
@@ -49,5 +48,6 @@
     <string name="title_activity_pick">pick</string>
     <string name="title_activity_results">ResultsActivity</string>
     <string name="title_activity_record">RecordActivity</string>
+    <string name="title_activity_instructions">InstructionsActivity</string>
 
 </resources>
