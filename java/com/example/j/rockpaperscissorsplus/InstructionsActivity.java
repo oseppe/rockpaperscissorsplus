@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 
 public class InstructionsActivity extends ActionBarActivity {
@@ -12,6 +13,8 @@ public class InstructionsActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructions);
+        ImageView iv= (ImageView)findViewById(R.id.imageView);
+        iv.setImageResource(R.drawable.rpsp_rules);
     }
 
 

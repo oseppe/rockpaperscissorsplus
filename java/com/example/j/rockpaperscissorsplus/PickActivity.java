@@ -1,9 +1,6 @@
 package com.example.j.rockpaperscissorsplus;
 
-import android.content.Context;
 import android.content.Intent;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import module.GameEngine;
-import module.ShakeListener;
 import module.Weapon;
 
 
@@ -23,9 +19,6 @@ public class PickActivity extends ActionBarActivity {
     protected String mode;
     protected String playerOneWeapon;
     protected String playerTwoWeapon;
-    private SensorManager mSensorManager;
-    private Sensor mAccelerometer;
-    private ShakeListener mShakeDetector;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,24 +35,6 @@ public class PickActivity extends ActionBarActivity {
         spinner.setAdapter(adapter);
 
         this.mode = getIntent().getExtras().getString("com.example.j.rockpaperscissorsplus.EXTRA_MODE");
-
-        // ShakeDetector initialization
-        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager
-                .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mShakeDetector = new ShakeListener();
-        mShakeDetector.setOnShakeListener(new ShakeListener.OnShakeListener() {
-
-            @Override
-            public void onShake(int count) {
-                /*
-                 * The following method, "handleShakeEvent(count):" is a stub //
-                 * method you would use to setup whatever you want done once the
-                 * device has been shook.
-                 */
-                armPlayer();
-            }
-        });
     }
 
     @Override
@@ -87,18 +62,14 @@ public class PickActivity extends ActionBarActivity {
     @Override
     public void onResume() {
         super.onResume();
-        // Add the following line to register the Session Manager Listener onResume
-        mSensorManager.registerListener(mShakeDetector, mAccelerometer,    SensorManager.SENSOR_DELAY_UI);
     }
 
     @Override
     public void onPause() {
-        // Add the following line to unregister the Sensor Manager onPause
-        mSensorManager.unregisterListener(mShakeDetector);
         super.onPause();
     }
 
-    public void armPlayer() {
+    public void armPlayer(View view) {
         Spinner spinner = (Spinner)findViewById(R.id.weaponSpinner);
         String weapon = spinner.getSelectedItem().toString();
 

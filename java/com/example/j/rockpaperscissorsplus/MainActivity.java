@@ -21,6 +21,8 @@ public class MainActivity extends ActionBarActivity {
         Button btnCom = (Button) findViewById(R.id.btnVerCom);
         Button btnPla = (Button) findViewById(R.id.btnVerPla);
         Button btnRec = (Button) findViewById(R.id.btnRecord);
+        Button btnIns = (Button) findViewById(R.id.btnInstruct);
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,6 +38,10 @@ public class MainActivity extends ActionBarActivity {
                     case R.id.btnRecord:
                         goToRecord();
                         break;
+
+                    case R.id.btnInstruct:
+                        goToInstructions();
+                        break;
                 }
             }
         };
@@ -43,6 +49,7 @@ public class MainActivity extends ActionBarActivity {
         btnCom.setOnClickListener(listener);
         btnPla.setOnClickListener(listener);
         btnRec.setOnClickListener(listener);
+        btnIns.setOnClickListener(listener);
     }
 
 
@@ -76,6 +83,11 @@ public class MainActivity extends ActionBarActivity {
 
     public void goToRecord() {
         Intent intent = new Intent(this, RecordActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToInstructions() {
+        Intent intent = new Intent(this, InstructionsActivity.class);
         startActivity(intent);
     }
 }
