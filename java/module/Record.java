@@ -9,6 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.j.rockpaperscissorsplus.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * Created by j on 1/8/15.
  */
@@ -71,10 +74,16 @@ public class Record {
                 break;
         }
 
+        Calendar c = Calendar.getInstance();
+
+        SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy h:m a");
+        String date = df.format(c.getTime());
+
         // create map of values to insert in db
         ContentValues entry = new ContentValues();
         entry.put(DatabaseHelper.COL_OPPONENT, opponent);
         entry.put(DatabaseHelper.COL_RESULT, result);
+        entry.put(DatabaseHelper.COL_DATE, date);
         entry.put(DatabaseHelper.COL_RESULT_TEXT, resultText);
 
         // returns an id

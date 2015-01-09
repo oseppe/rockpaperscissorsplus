@@ -78,7 +78,7 @@ public class RecordActivity extends ActionBarActivity {
             TextView date = (TextView) view.findViewById(R.id.date_entry);
             TextView result = (TextView) view.findViewById(R.id.result_entry);
             // Extract properties from cursor
-            String dateText = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
+            String dateText = cursor.getString(cursor.getColumnIndexOrThrow("Date"));
             String opponentText = cursor.getString(cursor.getColumnIndexOrThrow("Opponent"));
             String resultText = cursor.getString(cursor.getColumnIndexOrThrow("ResultText"));
 
